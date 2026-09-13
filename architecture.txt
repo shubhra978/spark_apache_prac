@@ -1,0 +1,47 @@
+#Apache Spark notes
+
+Its a application program which uses distributed architecture to manage and process data as per requirement.
+
+Types of architecture:
+Monolithic:
+vertical scaling which is costly due to continious requriement of imporvement if large amount of data present.
+limited availability at certain moments due to a dedicated machine approach.
+
+Distributed:
+consisting of multiple machine with same config in master and slave approach
+task distributed into multiple machine as per requirement
+horizontal scaling as machines can be added as requirement and availability is not limited
+can handle  bigdata 
+
+Structure:
+Instead of Hadoop disk map reduce procedure which requires constant sending and receiving data from disk, Spark uses in memory (ram) for processing of data which is 100x faster than hadoop
+
+properties:
+in memory processing
+lazy evaluation
+batch processing and streaming on same api
+partitioning
+
+
+
+consist of a resource manager -which creates driver nodes and driver nodes will request for resources from resource manager to create worker nodes
+a driver node
+a worker node
+
+Application
+|
+Resource Manager
+|
+Driver Node
+|
+| requests executors
++---------+ +---------+ +---------+
+12
+| Worker1 | | Worker2 | | Worker3 |
+13
++---------+ +---------+ +---------+
+14
+| | |
+15
++------ Execute Tasks ----+
+
