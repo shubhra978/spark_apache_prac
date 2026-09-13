@@ -25,7 +25,7 @@ partitioning
 
 
 consist of a resource manager -which creates driver nodes and driver nodes will request for resources from resource manager to create worker nodes
-a driver node
+a driver node- it distributes the tasks among worker node and does the orchestration
 a worker node
 
 Application
