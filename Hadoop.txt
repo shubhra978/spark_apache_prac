@@ -1,0 +1,8 @@
+Hadoop is a open-source framework which replaced traditional db storing approach which was previously used to access data via DNS.
+It helps in managing large amount of data and not only that and was introduced to tackle 3 V's of data.
+
+3 V's of data: Velocity, variety(type sof data), Volume(amt of data)
+
+Hadoop has two parts
+HDFS: Hadoop distributed File system which delegate a large volume of data into multiple chunks and distribute it into multiple servers each of 128 mb
+map Reduce: these are actually tasks which uses mapper to map the objects within the content of the servers and reduce access the common content and send it to the local machine.
