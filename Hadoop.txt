@@ -5,4 +5,5 @@ It helps in managing large amount of data and not only that and was introduced t
 
 Hadoop has two parts
 HDFS: Hadoop distributed File system which delegate a large volume of data into multiple chunks and distribute it into multiple servers each of 128 mb
-map Reduce: these are actually tasks which uses mapper to map the objects within the content of the servers and reduce access the common content and send it to the local machine.
+map Reduce: Map task uses mapper to create key value pairs of the same objects within the local machine. reduce task pulls the mapper objects from the local machine and return it to the HDFS. 
+Example: if there are multiple 'I' letter (I : 3) which means occurrence is three, in multiple local machine reducer will take the letter and key pair and merge it sending to the HDFS file system. Reducer doesn't write anything on the local machine.
