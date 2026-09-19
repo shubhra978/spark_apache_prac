@@ -34,14 +34,22 @@ Resource Manager
 |
 Driver Node
 |
-| requests executors
-+---------+ +---------+ +---------+
-12
+requests executors
+|
 | Worker1 | | Worker2 | | Worker3 |
-13
-+---------+ +---------+ +---------+
-14
-| | |
-15
+|
 +------ Execute Tasks ----+
+
+narrow and wide transformation
+The underlying structure of spark has a function of chunking. spark has a distributed architecture which do the tansformation in chunks.
+For example: if i want to aggregate a table consisting of rows and columns, then before the transformation happens the table is divided into 128 mb chunks
+
+Narrow transformation:
+after the data is chunked it gets assigned to workers or nodes who will be working on the transformation but they will work parallelly without communicating,
+exchanging the data then after the results are provided they will get merged into one result. Keep in mind it is being used for one input transformation
+
+Wide transformation:
+When the data is chunked it gets shuffled before getting assigned to the workers or nodes who will be working on the transformation and provides the result.
+Keep in mind it is being used for multi input transformation.
+
 
