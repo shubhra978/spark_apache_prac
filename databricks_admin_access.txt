@@ -1,0 +1,3 @@
+Unity Catalog:
+for users who have admin access can check what is the condition of their metastore from the manage account section.
+to get admin priviledge, First we have to login via our microsoft azure entra id
