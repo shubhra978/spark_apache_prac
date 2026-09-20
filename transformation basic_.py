@@ -13,5 +13,7 @@ df_filter.show()
 df.withColumn("salary",col("salary").cast("int"))
 df.withColumn("age",col("age").cast("int"))
 df.withColumn("id",col("id").cast("int"))
-#printing the types of the schema
+#printing the types of each schema
 df.printSchema()
+#displaying the types of each schema
+print(df.dtypes)
