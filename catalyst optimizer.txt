@@ -11,3 +11,7 @@ So if we are using resource which are unnecessary and redundant, spark will find
 to see what are the jobs that are running( available in the personal hosted server version) we have to click on the jobs and view it.
   We can check for the duration, the steps involved and the storage or usage of data in it.
 Also using this function '.explain()' we can check what is the physical plan spark is using for the session
+
+Example:
+== Physical Plan ==
+LocalTableScan [id#11406L, gender#11410, age#11409L, salary#11411L]
