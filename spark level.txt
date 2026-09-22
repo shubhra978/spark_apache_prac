@@ -1,0 +1,7 @@
+Spark has several level:
+
+libraries and Structured Streaming
+|
+Data frames , Dataset , SQL
+|
+RDD's
