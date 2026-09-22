@@ -1,0 +1,8 @@
+RDD's are the backbone of spark architecture. It works in the backend of each operation and partition and also distribution.
+DEfinition: 
+Resilient:  the way of storing data is resilient that means it is immutable, it cant be changed. after everyoperation a new logical partition is getting created
+example: RDD1 = 100 ( now if we want to make it 110 ) spark will automatically create a new RDD
+RDD2 =  RDD1+10
+Distributed: the data which we are working with is stored as a list which again gets distributed into nodes 
+example: [1,2,3,4,5] will be divided into [1,2] and [3,4,5]
+Dataset: Even though we work with data frames, behind the scene it is getting converted to Dataset
