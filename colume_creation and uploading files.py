@@ -9,10 +9,10 @@ df = df.repartition(2) #to repartition the data
 
 #transformation-1
 #narrow_transformation
-df = df.select("Product ID", "Category")
+df = df.select("Category", "Sub-Category")
 df = df.filter(col("Category")=="Furniture")
 
 #transformation-2
 #wide_transformation
-df = df.groupBy("Product ID").count()
+df = df.groupBy("Sub-Category").count()
 display(df)
