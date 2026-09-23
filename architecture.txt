@@ -54,6 +54,7 @@ example function: filter(),union()
 Wide transformation:
 When the data is chunked it gets shuffled before getting assigned to the workers or nodes who will be working on the transformation and provides the result.
 Keep in mind it is being used for multi input transformation.
+For wide transformation every transformation has 200 partition.
 example function: groupby(), join(), distinct()
 
 
