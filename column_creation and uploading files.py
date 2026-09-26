@@ -16,3 +16,4 @@ df = df.filter(col("Category")=="Furniture")
 #wide_transformation
 df = df.groupBy("Sub-Category").count()
 display(df)
+
