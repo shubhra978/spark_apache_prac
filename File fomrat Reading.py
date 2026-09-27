@@ -28,6 +28,7 @@ display(df_final.limit(10))
 #parquet reading
 df_parquet = spark.read\
     .format("parquet")\
+    .option("mode","PERMISSIVE")\
     .load("/Volumes/spark_job_stage_creation/spark_classes/spark_volume/titanic.parquet")
 display(df_parquet.limit(10))
 
