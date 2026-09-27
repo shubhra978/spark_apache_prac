@@ -31,6 +31,8 @@ df_parquet = spark.read\
     .load("/Volumes/spark_job_stage_creation/spark_classes/spark_volume/titanic.parquet")
 display(df_parquet.limit(10))
 
+#reading JDBC and ODBC files
+
 #defining the url in a separate variable
 myurl = "jdbc:postgresql://spark-job-stage-postgresql.postgres.database.azure.com:5432/spark_job_stage_postgresql?user=spark_job_stage_postgresql%40spark-job-stage-postgresql&password=Sparkjobstage123456789&ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory"
 
