@@ -30,7 +30,7 @@ df_enforced_module.schema
 df_enforced_module.printSchema()
 
 #defining a new schema on a table to change the types of the column like DDL statement in SQL
-#procedure used = DDL Schema
+#procedure used = DDL Schema 
 
 my_ddl_schema = """
 `Product ID` STRING,
