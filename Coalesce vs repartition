@@ -1,0 +1,14 @@
+Repartition:
+Repartitioning increases or decreases size of partition
+repartionng shuffles the jobs between clusters
+used for fixing upstreaming of data skew
+
+Coalesce:
+Main goal of coalesce is to decrease the size of partiion
+Coalesce minimise or avoids shuffle
+merging multiple files before writing on disk
+
+
+
+
+
