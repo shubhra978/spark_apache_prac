@@ -1,0 +1,7 @@
+Data Skew: data skew means whenever the partition happens and the partition are made with uneven sizes.
+Example:  a job at 75% runstakes around 30 sec but it goes upto 30 min at its maximum stage
+
+to avaoid it we can implement:
+1. AQE: adaptive query execution to true to set up query execution in a optimise and planned way
+2. Salting: salting helps in replacing null or unknown values with keys which will help in distributing accross partition
+3. Broadcast join: Broadcasr join helps in broadcasting smaller portion of two dataset and broadcast into multiple nodes to avoid spilling of memory
