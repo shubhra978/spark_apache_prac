@@ -1,4 +1,4 @@
 Spark has 3 types of handling error records
-first is "PERMISSIVE" which is we can allow errors for few records. It will not trhow any error
+first is "PERMISSIVE" which replaces errors with null
 second is "DROPMALFORMED" which is dropping error records
 3rd in "FAILFAST" which handles very sensitive records and doesnt allow any erors or it will not load the file
