@@ -51,5 +51,7 @@ df_null = df_null.dropna('any')
 df_result =df_null
 display(df_result)
 
-
-
+#replacing null values with desired value
+df_fillna = df_null.fillna('dummy') #this will fill every column having null value without filling the different data type column
+df_null = df_null.fillna({'email':'dummy_email','name':'dummy_name'}) #this will fill the respective column with particular data mentioned as dictionary
+ 
