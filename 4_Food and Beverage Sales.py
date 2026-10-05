@@ -2,6 +2,9 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import sum,col
 spark = SparkSession.builder.appName('Spark Playground').getOrCreate()
+
+#product table
+
 products = spark.createDataFrame([
     (1, "Apple Juice",        "Beverages"),
     (2, "Orange Juice",       "Beverages"),
@@ -10,6 +13,8 @@ products = spark.createDataFrame([
     (5, "Fresh Strawberries", "Fruits"),
     (6, "Sparkling Water",    "Beverages"),
 ], ["product_id", "name", "category"])
+
+#sales table
 
 sales = spark.createDataFrame([
     (1, 1, 10, 20),
@@ -20,6 +25,8 @@ sales = spark.createDataFrame([
     (6, 4,  5, 10),
     (7, 6, 12, 24),
 ], ["sale_id", "product_id", "quantity", "revenue"])
+
+#inventory table
 
 inventory = spark.createDataFrame([
     (1, 50, "Warehouse A"),
@@ -33,12 +40,14 @@ inventory = spark.createDataFrame([
 #, "name", "category", "sale_id", #, "quantity", "revenue",#, "stock", "warehouse"
 #Copy the starter code or load the file path available in the problem statement 
 #Aggregate sales: For each product, compute total_quantity and total_revenue by summing across all sales rows.
-agg_sales = sales.groupBy("product_id")\
+agg_sales = sales\
+.groupBy("product_id")\
 .agg(sum("quantity").alias("total_quantity"),\
      sum("revenue").alias("total_revenue")\
     )
 #Aggregate inventory: For each product, compute total_stock by summing stock across all warehouses.
-agg_inventory = inventory.groupBy("product_id")\
+agg_inventory = inventory\
+.groupBy("product_id")\
 .agg(sum("stock").alias("total_stock")\
     )
 
