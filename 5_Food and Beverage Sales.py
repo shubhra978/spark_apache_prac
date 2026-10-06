@@ -67,3 +67,26 @@ result = df_combine\
 .withColumn("total_stock", col("total_stock").cast("long"))
 
 display(result)
+
+#option 2
+
+# Aggregate first
+agg_sales_small = sales.groupBy("product_id")\
+    .agg(
+        sum("quantity").alias("total_quantity"),
+        sum("revenue").alias("total_revenue")
+    )
+
+agg_inventory_small = inventory.groupBy("product_id")\
+    .agg(sum("stock").alias("total_stock"))
+#using broadcast join to avoid shuffling of smaller table for expensive join operation
+result3 = products\
+    .join(broadcast(agg_sales_small), "product_id", "left")\
+    .join(broadcast(agg_inventory_small), "product_id", "left")\
+    .orderBy("product_id")\
+    .fillna(0)\
+    .withColumn("total_quantity", col("total_quantity").cast("long"))\
+    .withColumn("total_revenue", col("total_revenue").cast("long"))\
+    .withColumn("total_stock", col("total_stock").cast("long"))
+# Display the final DataFrame using the display() function.
+display(result3)
