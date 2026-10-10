@@ -25,7 +25,13 @@ df_table = spark.createDataFrame(data, columns)
 display(df_table)
 
 #window functions at a glance
-df_window = df_table.withColumn('row_number', row_number().over(Window.orderBy('age')))\
+df_window = df_table\
+#adding row number
+.withColumn('row_number', row_number().over(Window.orderBy('age')))\
+#adding rank function
     .withColumn('rank',rank().over(Window.partitionBy('age').orderBy('salary')))\
-        .withColumn('dense_rank',dense_rank().over(Window.partitionBy('age').orderBy('salary')))
+#adding denserank function
+        .withColumn('dense_rank',dense_rank().over(Window.partitionBy('age').orderBy('salary')))\
+#adding cumulative sum function using row preceding 
+        .withColumn('cumulative_sum',sum('salary').over(Window.orderBy('salary').rowsBetween(Window.unboundedPreceding,Window.currentRow)))
 display(df_window)
