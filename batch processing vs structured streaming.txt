@@ -1,0 +1,11 @@
+Structured Streaming:
+Mostly done on unbounded data
+works in real time, latency in milliseconds and seconds
+complexity is high, has checkpoint for fault tolerance
+Example: real time alerts
+
+Batch Processing:
+Mostly done on bounded data
+works in historical data, latency in minutes to hours
+complexity is low, doesnt have fault tolerance
+Example: ELT, hitorical data analysis
