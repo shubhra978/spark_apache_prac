@@ -23,7 +23,7 @@ df.write\
     .mode("ignore")\
     .save("path","/Volumes/spark_job_stage_creation/spark_classes/spark_volume/demo_write_file/")
 
-
+#error
 df.write\
     .format("csv")\
     .mode("error")\
