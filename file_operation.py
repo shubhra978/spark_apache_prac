@@ -17,7 +17,7 @@ df.write\
     .mode("append")\
     .save("path","/Volumes/spark_job_stage_creation/spark_classes/spark_volume/demo_write_file/")
 
-
+#ignore
 df.write\
     .format("csv")\
     .mode("ignore")\
