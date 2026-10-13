@@ -1,0 +1,9 @@
+Delta log:
+this format of file is created in spark to apply the following attributes to a parquet file.
+It creates sequential json files with the several commits. Every compacted checkpoints are saved for the parquet file.
+Each json files doesnt store instruction rateher commits for metadata.
+  
+  1. Optimisation ( mostly optimise and z-order replace or remove files which act as a commit)
+  2. ACID properties
+  3. Commit and Rollback
+  4. Structured query env (Spark provides the engine. Delta log merely tells which file to read)
