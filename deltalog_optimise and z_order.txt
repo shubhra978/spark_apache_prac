@@ -1,9 +1,25 @@
 Delta log:
 this format of file is created in spark to apply the following attributes to a parquet file.
 It creates sequential json files with the several commits. Every compacted checkpoints are saved for the parquet file.
-Each json files doesnt store instruction rateher commits for metadata.
+Each json files doesnt store instruction rather commits for metadata.
   
   1. Optimisation ( mostly optimise and z-order replace or remove files which act as a commit)
   2. ACID properties
   3. Commit and Rollback
   4. Structured query env (Spark provides the engine. Delta log merely tells which file to read)
+
+
+Z-order and OPTIMIZE
+---------------------
+OPTIMIZE:
+1. Optimize function helps in merging multiple small files into the large 1 gb parquet files
+2. Amount of skipping data is minimum to moderate
+3. Write/compute cost is low
+4. Doesnt reorganize or sort the files
+
+
+Z-Order:
+1. It  doesnt work as a n explicit function rather than together with optimize. It helps in reorganize the small file commits in the large file.
+2. Amount of skipping data is high
+3. Write/Computation cost is high
+4. Reorganize and sort the the dataset using z-order curve
