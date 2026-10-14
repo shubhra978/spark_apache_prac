@@ -19,7 +19,7 @@ OPTIMIZE:
 
 
 Z-Order:
-1. It  doesnt work as a n explicit function rather than together with optimize. It helps in reorganize the small file commits in the large file.
+1. It  doesnt work as an explicit function rather than together with optimize. It helps in reorganize the small file commits in the large file.
 2. Amount of skipping data is high
 3. Write/Computation cost is high
 4. Reorganize and sort the the dataset using z-order curve
