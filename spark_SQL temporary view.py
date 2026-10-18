@@ -6,7 +6,7 @@
 df_new.createOrReplaceTempView("df_new")
 
 # Run Spark SQL and store the result in a new DataFrame
-severe_high_traffic_by_city = spark.sql("""
+df_new = spark.sql("""
     SELECT
         city,
         COUNT(*) AS accident_count
@@ -17,4 +17,4 @@ severe_high_traffic_by_city = spark.sql("""
 """)
 
 # Display the result in Databricks
-display(severe_high_traffic_by_city)
+display(df_new)
