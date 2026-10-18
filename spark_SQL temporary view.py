@@ -3,10 +3,10 @@
 #df_new.createOrReplaceGlobalTempView is used for creating temp view which will be serverless and can be used in different cluster
 
 # Create a temporary SQL view from the DataFrame
-df_new.createOrReplaceTempView("df_new")
+df_new.createOrReplaceTempView("df_new_temp")
 
 # Run Spark SQL and store the result in a new DataFrame
-df_new = spark.sql("""
+df_new_temp = spark.sql("""
     SELECT
         city,
         COUNT(*) AS accident_count
@@ -17,4 +17,4 @@ df_new = spark.sql("""
 """)
 
 # Display the result in Databricks
-display(df_new)
+display(df_new_temp)
