@@ -9,6 +9,7 @@ df =spark.read\
       .option("header",True)\
       .option("inferSchema",True)\
       .load("/datasets/customers.csv")
+#filter as per requirement
 df = df.filter((col("purchase_amount")>100) & (col("age")>=30))
 
 df_result = df.select("customer_id","name", "purchase_amount")
