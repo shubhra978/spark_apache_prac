@@ -1,0 +1,8 @@
+Table Caching & Session Management: You showed a solid grasp of in-memory caching mechanisms—such as the lazy evaluation of `CACHE TABLE` and the scope of `CLEAR CACHE;`—as well as how configuration parameters are managed using `RESET`.
+Catalog Metadata Synchronization: `REFRESH TABLE` updates cached metadata and file listings without unnecessarily recalculating column statistics.
+
+Execution Plan Inspection (`EXPLAIN`): Review the distinct modes of `EXPLAIN`. While `EXTENDED` shows parsed, analyzed, optimized, and physical plans, `EXPLAIN (FORMATTED)` or execution-specific options provide runtime metrics and operator node timings.
+Metastore Maintenance (`MSCK REPAIR` and `REFRESH FUNCTION`): `MSCK REPAIR TABLE` scans the underlying storage to recover uncataloged partition directories (it does not repair corrupt data files),
+while `REFRESH FUNCTION` reloads updated function definitions from the metastore into the current session.
+Statistics & Auxiliary Statement Syntax: Review prerequisites for `ANALYZE TABLE ... COMPUTE STATISTICS FOR ALL COLUMNS`,
+specifically restrictions around complex nested types, how `SET <key>;` inspects active values without resetting them, and how `IF EXISTS` guards against `AnalysisException` during uncache operations.
