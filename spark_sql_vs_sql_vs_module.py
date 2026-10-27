@@ -40,3 +40,14 @@ mode(temperature)
  from df_sql
  group by city
  order by city
+
+
+df_ap = df_ap.groupBy("city").agg(collect_list("temperature").alias("array_agg(temperature)"),\
+     count("temperature").alias("count(temperature)"),\
+          avg("temperature").alias("avg(temperature)"),\
+               sum("temperature").alias("sum(temperature)"),\
+                    max("temperature").alias("max(temperature)"),\
+                         min("temperature").alias("min(temperature)"),\
+                             array_agg("temperature").alias("array_agg(temperature)"),\
+                                 collect_set("temperature").alias("collect_set(temperature)"))
+display(df_ap)
