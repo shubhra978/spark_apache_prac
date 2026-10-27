@@ -16,7 +16,27 @@ df_sql = spark.sql("""
                    select 
                    city,
                    array_agg(temperature),
+                   collect_list(temperature),
+                    collect_set(temperature),
+                    min(temperature),
+                    max(temperature),
+                    avg(temperature),
+                    mode(temperature)
                     from df_sql
                     group by city
                    """)
 display(df_sql)
+
+#using only sql
+%sql
+select city,
+array_agg(temperature),
+collect_list(temperature),
+collect_set(temperature),
+min(temperature),
+max(temperature),
+avg(temperature),
+mode(temperature)
+ from df_sql
+ group by city
+ order by city
