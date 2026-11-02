@@ -1,4 +1,5 @@
 shuffle sort merge join
+--------------------------
 whenever a user is performing a join using dataframes, the first thing happens in spark is it will perform 200 partition as default.
 Each partition uses hash function {hash(part no.)% total partition} to move the data into several partition as per their data frame part no. 
 Then it will sort the data frame deleting the extra empty partition. Other wise it will be costly to perform joins. 
