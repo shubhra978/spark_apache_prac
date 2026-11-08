@@ -6,5 +6,5 @@ COns: OOM issue happens if the data present in executor is more than allocated m
 Overhead:
 the overhead which is the 10% of the JVM heap atleast 384 mb has a role of non jvm processes, libraries, python funcitons
 
-So whenever we use show funcitons fdiever shows results of once of the executors and rest are still hidden 
+So whenever we use show functions it shows results of once of the executors and rest are still hidden 
 
