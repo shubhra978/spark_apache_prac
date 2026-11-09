@@ -1,10 +1,31 @@
 spark.driver.memory
 ----------------------
-JVM Heap:
+JVM Heap:(90% of the allocated space)
+---------------
 the driver node consists of a JVM heap and a overhead layer. The work of JVM heap is to control operation which includes collect(), show(), memory management, task scheduling etc
 COns: OOM issue happens if the data present in executor is more than allocated memory in driver when collect is used()
-Overhead:
+Overhead:(10% of the allocated space)
+-----------
 the overhead which is the 10% of the JVM heap atleast 384 mb has a role of non jvm processes, libraries, python funcitons
 
 So whenever we use show functions it shows results of once of the executors and rest are still hidden 
+
+
+JVM heap conissts of 3 parts:
+--------------------------------
+
+reserved memory: 300 mb 
+-------------------------
+
+spark spool memory: which is 60% of the JVM heap 
+-------------------
+it further divides into 
+storage memory : which is used for the caching of the used function
+execution memory : it is used for execution of the jobs
+
+
+user memory: 40% of the memory which is used for running UDF's, custom function
+-------------
+
+
 
