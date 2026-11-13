@@ -27,5 +27,12 @@ execution memory : it is used for execution of the jobs
 user memory: 40% of the memory which is used for running UDF's, custom function
 -------------
 
+Memory Spill:
+---------------
+Memory spill happens when executor memory and storage memory is used at its maximum rate for operation. At that time memory spill is done by transferring the storage requirement to hard disk.
+
+OOM:
+executor oom memory happens when the required storage is grater than assigned memory to the pool memory which is 60% of the jvm heap memory. At that moment even if we transfer the partition to the har disk, it cnanot be executed as everytime it comes again to the executor memory it will again get transferred to hard disk  and this loop happens infinitely until salting is involved in it
+
 
 
