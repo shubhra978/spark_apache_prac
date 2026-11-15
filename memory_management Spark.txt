@@ -34,5 +34,17 @@ Memory spill happens when executor memory and storage memory is used at its maxi
 OOM:
 executor oom memory happens when the required storage is grater than assigned memory to the pool memory which is 60% of the jvm heap memory. At that moment even if we transfer the partition to the har disk, it cnanot be executed as everytime it comes again to the executor memory it will again get transferred to hard disk  and this loop happens infinitely until salting is involved in it
 
+edge node:
+every spark operation is done via edge node which act as a gateway for our spark-submit process. it act as a secure procedure of connecting private cluster with external network. 
+
+deployment modes in spark
+----------------------------
+in spark mostly all operation are done in particular deployement mode which done by spark-submit .
+there are two ways mainly:
+cluster mode: creating a driver node out of cluster which will be created by cluster manager as per requirement.
+client mode: in client mode the edge node has the diriver node and it will perform all the operation from edge node, also storing the logs in it.
+
+difference: even though it is storing logs in client mode there is a latency in operation. it means it is not directly in the clusters position and operation will be delayed but for cluster mode, the driver node is one of  the whole cluster which will act with less latency
+
 
 
