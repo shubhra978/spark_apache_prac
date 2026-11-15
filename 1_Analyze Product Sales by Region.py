@@ -12,3 +12,9 @@ result = (
 )
 
 result.show()
+
+
+getting bonus:
+---------------
+df_result = employees.withColumn("bonus", col('salary')*0.1)  # TODO: add bonus = salary * 0.1
+df_result.show()
