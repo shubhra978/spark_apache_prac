@@ -1,0 +1,16 @@
+AQE: its a framework for which is used for reoptimising the query execution plan during runtime.it was introduced in spark 3.0
+main features:
+
+applying coalesce to the partition to combine smaller partition into a single partition to save space 
+
+(example: several smaller partition while applying wide transformation may result smaller partition along with large partition.
+with help of coalesce it combines smaller partition into bigger partition to decrease number of partition and improve query execution space/time)
+
+minimise skewness by breaking up bigger partition into small chunks during execution
+
+(example: large partition offers skewness.with AQE the large partition is divided into several small similar partition to eliminate skewness)
+
+applying required filters before joining to minimise data size and apply boradcast join
+
+(example: sparks normal joins are expensive if used which are mostly merger sort join. 
+AQE helps in minimising the size of the data set to a small chunk to apply broadcast join with the large dataset)
