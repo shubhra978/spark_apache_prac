@@ -1,0 +1,30 @@
+spark has a habit of creating the plan form the beginning if we are using any action.
+  By using cache() function it helps in temporary storage of the previous partitions and spill the rest to the disk.
+its a special kind of persist which uses the ram and whenits full it pushes the rest of the partitions to the disk
+
+persist: persist helps in persisting the partition into the memory.
+
+Types of memory level in persist:
+
+Memory_only: df.persist(StorageLevel.MEMORY_ONLY)
+--------------------------------------------------
+this works for RDD's only where the partition are stored in a deserialised jvm objects.
+its faster as it is only reading the RAM
+if the RAM is failing to store the partition, spark drops the rest and recaluclate it as per requirement
+It is default for RDD's
+
+Memory and Disk: df.persist(StorageLevel.MEMORY_AND_DISK) / df.cache()
+----------------------------------------------------------
+This works for dataframe and the partitions are stored as per requirement via spark in RAM
+Its a little bit slow if the jobs are using the partition from disk to invoke any action
+its safer than memory only as rest of the partitions are not dropped
+
+
+Total types of storage level:
+-----------------------------
+df.persist(StorageLevel.MEMORY_ONLY) used for RDD's only
+df.persist(StorageLevel.MEMORY_AND_DISK) used for dataframes
+df.persist(StorageLevel.MEMORY_ONLY_2) which saves the data twice
+df.persist(StorageLevel.MEMORY_ONLY_SER) not available in spark
+df.persist(StorageLevel.MEMORY_AND_DISK_SER) not available in spark
+
