@@ -36,6 +36,7 @@ display(df_result)
 
 #using drop_na with 'any' argument to just remove nulls from columns but doesnot work as full null rows
 # Initialize Spark session
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
 spark = SparkSession.builder.appName('Spark Playground').getOrCreate()
